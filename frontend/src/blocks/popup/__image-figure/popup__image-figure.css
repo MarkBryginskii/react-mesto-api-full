@@ -1,0 +1,9 @@
+.popup__image-figure {
+  margin: 10px 0px 0px;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+  display: flex;
+  justify-self: flex-start;
+}

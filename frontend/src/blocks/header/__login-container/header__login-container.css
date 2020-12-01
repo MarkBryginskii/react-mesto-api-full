@@ -1,0 +1,7 @@
+.header__login-container {
+  width: min-content;
+  height: min-content;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

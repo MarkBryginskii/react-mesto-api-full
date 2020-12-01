@@ -1,0 +1,19 @@
+.profile__info-row {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 882px) {
+  .profile__info-row {
+    margin: 0px;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 881px) {
+  .profile__info-row {
+    margin: auto;
+    justify-content: center;
+  }
+}

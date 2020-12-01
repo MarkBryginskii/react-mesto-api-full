@@ -1,0 +1,38 @@
+@import url(./_min-transparent/popup_min-transparent.css);
+@import url(./_half-transparent/popup_half-transparent.css);
+@import url(./__form-container/popup__form-container.css);
+@import url(./__form-container/_large/popup__form-container_large.css);
+@import url(./__form-container/_medium/popup__form-container_medium.css);
+@import url(./__form-container/_small/popup__form-container_small.css);
+@import url(./__form-container/_x-small/popup__form-container_x-small.css);
+
+@import url(./__close-button/popup__close-button.css);
+@import url(./__title/popup__title.css);
+@import url(./__title/_middle/popup__title_middle.css);
+@import url(./__input-container/popup__input-container.css);
+@import url(./__text-field/popup__text-field.css);
+@import url(./__text-field/_error/popup__text-field_error.css);
+@import url(./__input-error/popup__input-error.css);
+@import url(./__save-button/popup__save-button.css);
+@import url(./__save-button/_disabled/popup__save-button_disabled.css);
+
+@import url(./__image-container/popup__image-container.css);
+@import url(./__image/popup__image.css);
+@import url(./__image-figure/popup__image-figure.css);
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}

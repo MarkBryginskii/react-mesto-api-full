@@ -1,0 +1,4 @@
+.popup__text-field {
+  display: flex;
+  flex-direction: column;
+}

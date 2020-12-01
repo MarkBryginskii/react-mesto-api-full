@@ -1,0 +1,9 @@
+.root {
+  margin: 0px;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+}

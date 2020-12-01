@@ -1,0 +1,7 @@
+.photo-card__like-container {
+  width: min-content;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,0 +1,13 @@
+@media screen and (min-width: 882px) {
+  .popup__form-container_x-small {
+    width: 430px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 881px) {
+  .popup__form-container_x-small {
+    width: 240px;
+    height: 140px;
+  }
+}

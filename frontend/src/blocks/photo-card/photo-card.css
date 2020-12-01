@@ -1,0 +1,21 @@
+@import url(./__image/photo-card__image.css);
+@import url(./__footer/photo-card__footer.css);
+@import url(./__title/photo-card__title.css);
+@import url(./__like-container/photo-card__like-container.css);
+@import url(./__like-icon/photo-card__like-icon.css);
+@import url(./__like-counter/photo-card__like-counter.css);
+@import url(./__like-icon/_active/photo-card__like-icon_active.css);
+@import url(./__trash-icon/photo-card__trash-icon.css);
+@import url(./__trash-icon/_hide/photo-card__trash-icon.css);
+
+
+.photo-card {
+  margin: auto;
+  padding: 0px;
+  width: 282px;
+  height: 361px;
+  position: relative;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}

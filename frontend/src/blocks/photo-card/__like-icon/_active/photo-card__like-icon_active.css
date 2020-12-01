@@ -1,0 +1,10 @@
+.photo-card__like-icon_active {
+  width: 22px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../../../images/like-icon-active.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

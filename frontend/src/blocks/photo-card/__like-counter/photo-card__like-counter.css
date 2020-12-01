@@ -1,0 +1,8 @@
+.photo-card__like-counter {
+  margin: 3px 0px 0px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}

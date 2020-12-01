@@ -1,0 +1,18 @@
+.photo-card__trash-icon {
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../../../images/trash-icon.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.photo-card__trash-icon:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

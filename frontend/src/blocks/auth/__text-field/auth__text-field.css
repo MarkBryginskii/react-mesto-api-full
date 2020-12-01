@@ -1,0 +1,19 @@
+.auth__text-field {
+  margin-bottom: 30px;
+  width: 358px;
+  height: 27px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: black;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.auth__text-field:last-of-type {
+  margin-bottom: 216px;
+}
