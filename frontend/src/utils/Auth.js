@@ -54,7 +54,7 @@ class Auth {
 }
 
 const appAuth = new Auth({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://mbruginskii.students.nomoredomains.rocks",
   endPoint: {
     default: '/',
     user: '/users/me',

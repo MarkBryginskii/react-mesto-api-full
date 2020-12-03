@@ -80,7 +80,7 @@ class Api {
 }
 
 const appApi = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-14",
+  baseUrl: "https://api.mbruginskii.students.nomoredomains.rocks",
   headers: {
     authorization: "aa78f1a9-4e3b-428a-a9f7-5265cbc9b3da",
     "Content-Type": "application/json",
