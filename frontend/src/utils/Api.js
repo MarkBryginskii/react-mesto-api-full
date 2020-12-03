@@ -82,7 +82,7 @@ class Api {
 const appApi = new Api({
   baseUrl: "https://api.mbruginskii.students.nomoredomains.rocks",
   headers: {
-    authorization: "aa78f1a9-4e3b-428a-a9f7-5265cbc9b3da",
+    authorization: `Bearer ${localStorage.getItem('jwt')}`,
     "Content-Type": "application/json",
   },
 });
