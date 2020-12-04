@@ -12,7 +12,8 @@
   },
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy": "scp -r ./app.js wizdoom90@84.201.129.94:/home/wizdoom90/react-mesto-api-full/backend"
   },
   "keywords": [],
   "bugs": {
@@ -30,6 +31,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "celebrate": "^13.0.4",
+    "cors": "^2.8.5",
     "depcheck": "^1.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

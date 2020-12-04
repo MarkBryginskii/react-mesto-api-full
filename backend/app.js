@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const { errors } = require('celebrate');
 
 const auth = require('./middlewares/auth');
@@ -16,6 +17,11 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
+app.use(
+  '*',
+  cors(),
+);
+
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -26,13 +32,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(bodyParser.json());
 
 app.use(requestLogger);
-
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
-  next();
-});
 
 app.use('/', usersRouters);
 
