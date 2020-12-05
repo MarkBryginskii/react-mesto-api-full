@@ -6,14 +6,14 @@ const {
 
 router.get('/users/me', getUser);
 
-router.patch('users/me', celebrate({
+router.patch('/users/me', celebrate({
   body: Joi.object().keys({
     name: Joi.string().trim().min(2).max(30),
     about: Joi.string().trim().min(2).max(30),
   }),
 }), updateProfile);
 
-router.patch('users/me/avatar', celebrate({
+router.patch('/users/me/avatar', celebrate({
   body: Joi.object().keys({
     avatar: Joi.string().required().trim().uri(),
   }),
