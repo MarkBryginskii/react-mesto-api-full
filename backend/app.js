@@ -3,7 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const { errors } = require('celebrate');
+const { errors, celebrate, Joi } = require('celebrate');
+
+const {
+  createUser, login,
+} = require('./controllers/users');
 
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -28,17 +32,31 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(bodyParser.json());
 
+app.use(requestLogger);
+
 app.use('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
 
-app.use(requestLogger);
+app.use('/signup', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().alphanum().required().min(5),
+  }),
+}), createUser);
 
-app.use('/', usersRouters);
+app.use('/signin', celebrate({
+  body: Joi.object().keys({
+    email: Joi.string().required().email(),
+    password: Joi.string().alphanum().required().min(5),
+  }),
+}), login);
 
 app.use(auth);
+
+app.use('/', usersRouters);
 
 app.use('/', cardsRouters);
 
