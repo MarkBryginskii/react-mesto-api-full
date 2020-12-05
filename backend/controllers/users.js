@@ -42,7 +42,7 @@ const login = (req, res, next) => {
 const getUser = (req, res, next) => {
   User.findById(req.user._id)
     .orFail()
-    .then((user) => res.status(200).send({ user }))
+    .then((user) => res.status(200).send(user))
     .catch(() => {
       throw new NotFoundError('Пользователь не найден');
     })
