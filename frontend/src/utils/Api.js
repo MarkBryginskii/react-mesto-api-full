@@ -83,6 +83,7 @@ const appApi = new Api({
   baseUrl: "https://api.mestobruginskii.students.nomoredomains.rocks",
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    Accept: 'application/json',
     "Content-Type": "application/json",
   },
 });

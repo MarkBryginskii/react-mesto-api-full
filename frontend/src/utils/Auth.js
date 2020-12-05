@@ -57,6 +57,7 @@ const appAuth = new Auth({
   baseUrl: "https://api.mestobruginskii.students.nomoredomains.rocks",
   headers: {
     "Content-Type": "application/json",
+    Accept: 'application/json',
   },
   endPoint: {
     default: '/',
