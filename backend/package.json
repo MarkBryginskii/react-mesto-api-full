@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "deploy": "scp -r ./app.js wizdoom90@84.201.129.94:/home/wizdoom90/react-mesto-api-full/backend"
+    "deploy": "scp -r ./app.js wizdoom90@84.201.175.97:/home/wizdoom90/react-mesto-api-full/backend"
   },
   "keywords": [],
   "bugs": {

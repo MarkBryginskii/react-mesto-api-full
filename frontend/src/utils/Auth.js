@@ -54,7 +54,7 @@ class Auth {
 }
 
 const appAuth = new Auth({
-  baseUrl: "https://api.mbruginskii.students.nomoredomains.rocks",
+  baseUrl: "https://api.mestobruginskii.students.nomoredomains.rocks",
   headers: {
     "Content-Type": "application/json",
   },
