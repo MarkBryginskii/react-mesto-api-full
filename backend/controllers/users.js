@@ -40,7 +40,7 @@ const login = (req, res, next) => {
 };
 
 const getUser = (req, res, next) => {
-  User.findById(req.params._id)
+  User.findById(req.user._id)
     .orFail()
     .then((user) => res.status(200).send({ user }))
     .catch(() => {
