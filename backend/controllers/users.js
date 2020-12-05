@@ -9,9 +9,7 @@ const NotFoundError = require('../errors/NotFoundError');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
-  const { email } = req.body;
-
-  User.findOne(email)
+  User.findOne(req.body.email)
     .then((user) => {
       if (user) {
         throw new RequestError('Такой пользователь уже существует в системе');
