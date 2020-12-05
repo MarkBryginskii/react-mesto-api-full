@@ -9,15 +9,18 @@ const NotFoundError = require('../errors/NotFoundError');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10)
+  User.findOne(req.body.email)
+    .then((user) => {
+      if (user) {
+        throw new RequestError('Такой пользователь уже существует в системе');
+      }
+      return bcrypt.hash(req.body.password, 10);
+    })
     .then((hash) => User.create({
       email: req.body.email,
       password: hash,
     })
-      .then((user) => { res.status(200).send(user); })
-      .catch(() => {
-        throw new RequestError('Ошибка создание пользователя');
-      }))
+      .then((user) => { res.status(200).send(user); }))
     .catch(next);
 };
 
