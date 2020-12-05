@@ -64,7 +64,7 @@ const App = () => {
   }, [history]);
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     (isLiked ? appApi.removeCardLike(card._id) : appApi.addCardLike(card._id))
     .then((newCard) => {
