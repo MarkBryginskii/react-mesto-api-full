@@ -7,7 +7,7 @@ router.get('/cards', getCards);
 router.post('/cards', celebrate({
   body: Joi.object().keys({
     name: Joi.string().required(),
-    link: Joi.string().required().pattern(new RegExp('/https?://(www.)?[-a-zA-Z0-9-_]{1,}.[-a-zA-Z0-9@:%._/+~#=()]{1,}/')),
+    link: Joi.string().required().trim().uri(),
   }),
 }), postCard);
 
