@@ -52,7 +52,11 @@ const getUser = (req, res, next) => {
 const updateProfile = (req, res, next) => {
   const { name, about } = req.body;
 
-  User.findByIdAndUpdate(req.user._id, { name, about })
+  User.findByIdAndUpdate(req.user._id, { name, about }, {
+    new: true,
+    runValidators: true,
+    upsert: false,
+  })
     .orFail()
     .then((user) => res.status(200).send(user))
     .catch(() => {
@@ -64,7 +68,11 @@ const updateProfile = (req, res, next) => {
 const updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
 
-  User.findByIdAndUpdate(req.user._id, { avatar })
+  User.findByIdAndUpdate(req.user._id, { avatar }, {
+    new: true,
+    runValidators: true,
+    upsert: false,
+  })
     .orFail()
     .then((user) => res.status(200).send(user))
     .catch(() => {

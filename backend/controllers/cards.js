@@ -32,4 +32,32 @@ const deleteCard = (req, res, next) => {
     .catch(next);
 };
 
-module.exports = { getCards, postCard, deleteCard };
+const likeCard = (req, res, next) => {
+  Card.findByIdAndUpdate(req.params.id,
+    { $addToSet: { likes: req.user._id } },
+    { new: true })
+    .then((card) => {
+      if (!card) {
+        throw new NotFoundError('Нет карточки с таким id');
+      }
+      res.send(card);
+    })
+    .catch(next);
+};
+
+const dislikeCard = (req, res, next) => {
+  Card.findByIdAndUpdate(req.params.id,
+    { $pull: { likes: req.user._id } },
+    { new: true })
+    .then((card) => {
+      if (!card) {
+        throw new NotFoundError('Нет карточки с таким id');
+      }
+      res.send(card);
+    })
+    .catch(next);
+};
+
+module.exports = {
+  getCards, postCard, deleteCard, likeCard, dislikeCard,
+};
