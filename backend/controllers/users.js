@@ -40,7 +40,6 @@ const login = (req, res, next) => {
 };
 
 const getUser = (req, res, next) => {
-  // User.findOne({ _id: req.user._id })
   User.findById(req.params._id)
     .orFail()
     .then((user) => res.status(200).send({ user }))

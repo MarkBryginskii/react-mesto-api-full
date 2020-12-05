@@ -5,7 +5,7 @@ class Auth {
   }
 
   register(obj) {
-    return this.fetch(this._baseUrl + this._endPoint.signup, {
+    return fetch(this._baseUrl + this._endPoint.signup, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -20,7 +20,7 @@ class Auth {
   }
 
   login(obj) {
-    return this.fetch(this._baseUrl + this._endPoint.signin, {
+    return fetch(this._baseUrl + this._endPoint.signin, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -40,12 +40,12 @@ class Auth {
   }
 
   userInfo(jwt) {
-    return this.fetch(this._baseUrl + this._endPoint.user, {
+    return fetch(this._baseUrl + this._endPoint.user, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        Authorization : `Bearer ${jwt}`
+        'Authorization' : `Bearer ${jwt}`
       }
     })
     .then((res) => { return res.json(); })
