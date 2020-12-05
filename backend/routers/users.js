@@ -20,7 +20,7 @@ router.post('/signin', celebrate({
 
 router.get('/users/me', celebrate({
   headers: Joi.object().keys({
-    _id: Joi.string().alphanum().required().length(24),
+    _id: Joi.string().alphanum().length(24),
   }),
 }), getUser);
 
