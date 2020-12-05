@@ -10,7 +10,6 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
   User.findOne({ email: req.body.email })
-    .orFail()
     .then((user) => {
       if (user) {
         throw new RequestError('Такой пользователь уже существует в системе');

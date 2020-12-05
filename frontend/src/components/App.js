@@ -138,7 +138,7 @@ const App = () => {
   const handleRegister = (obj) => {
     appAuth.register(obj)
     .then((res) => {
-      if(!res.error) {
+      if(!res.message) {
         setIsAuthSuccess(true);
         setInfoTooltipOpen(true);
         history.push('/sign-in');
