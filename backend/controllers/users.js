@@ -49,6 +49,30 @@ const getUser = (req, res, next) => {
     .catch(next);
 };
 
+const updateProfile = (req, res, next) => {
+  const { name, about } = req.body;
+
+  User.findByIdAndUpdate(req.user._id, { name, about })
+    .orFail()
+    .then((user) => res.status(200).send(user))
+    .catch(() => {
+      throw new NotFoundError('Пользователь не найден');
+    })
+    .catch(next);
+};
+
+const updateAvatar = (req, res, next) => {
+  const { avatar } = req.body;
+
+  User.findByIdAndUpdate(req.user._id, { avatar })
+    .orFail()
+    .then((user) => res.status(200).send(user))
+    .catch(() => {
+      throw new NotFoundError('Пользователь не найден');
+    })
+    .catch(next);
+};
+
 module.exports = {
-  createUser, login, getUser,
+  createUser, login, getUser, updateProfile, updateAvatar,
 };
