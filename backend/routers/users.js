@@ -18,10 +18,6 @@ router.post('/signin', celebrate({
   }),
 }), login);
 
-router.get('/users/me', celebrate({
-  headers: Joi.object().keys({
-    _id: Joi.string().alphanum().length(24),
-  }),
-}), getUser);
+router.get('/users/me', getUser);
 
 module.exports = router;
