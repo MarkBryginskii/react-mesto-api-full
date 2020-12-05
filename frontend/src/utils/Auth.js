@@ -45,7 +45,7 @@ class Auth {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization' : `Bearer ${jwt}`
+        Authorization : `Bearer ${jwt}`
       }
     })
     .then((res) => { return res.json(); })
@@ -55,10 +55,6 @@ class Auth {
 
 const appAuth = new Auth({
   baseUrl: "https://api.mestobruginskii.students.nomoredomains.rocks",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: 'application/json',
-  },
   endPoint: {
     default: '/',
     user: '/users/me',

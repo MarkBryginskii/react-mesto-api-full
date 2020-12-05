@@ -42,16 +42,25 @@ const App = () => {
       appAuth.userInfo(localStorage.getItem('jwt'))
       .then((userData) => {
         setIsloggedIn(true);
-        setIsUserEmail(userData.data.email);
+        setIsUserEmail(userData.email);
+      })
+      .then(() => {
+        appApi.getUserInfo()
+          .then((userData) => {
+            setCurrentUser(userData);
+          })
+      })
+      .then(() => {
+        appApi.getInitialCards()
+          .then((cards) => {
+            setCards(cards);
+          })
+      })
+      .then(() => {
         history.push('/');
       })
       .catch((err) => {console.log(err)});
     }
-    appApi.getUserInfo()
-    .then((userData) => {
-        setCurrentUser(userData);
-      })
-    .catch((err) => {console.log(err)})
   }, [history]);
 
   const handleCardLike = (card) => {
@@ -73,14 +82,6 @@ const App = () => {
     })
     .catch((err) => {console.log(err)})
   }
-
-  React.useEffect( () => {
-    appApi.getInitialCards()
-    .then((cards) => {
-      setCards(cards);
-      })
-    .catch((err) => {console.log(err)})
-    }, []);
 
   const [selectedCard, setSelectedCard] = React.useState({});
 
