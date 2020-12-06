@@ -8,8 +8,10 @@ router.get('/users/me', getUser);
 
 router.patch('/users/me', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().trim().min(2).max(30),
-    about: Joi.string().trim().min(2).max(30),
+    name: Joi.string().trim().min(2).max(30)
+      .required(),
+    about: Joi.string().trim().min(2).max(30)
+      .required(),
   }),
 }), updateProfile);
 

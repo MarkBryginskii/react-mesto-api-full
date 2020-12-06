@@ -2,9 +2,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.js');
 
-const RequestError = require('../errors/RequestError');
+const RequestError = require('../errors/AuthorizationError');
 const AuthorizationError = require('../errors/AuthorizationError');
 const NotFoundError = require('../errors/NotFoundError');
+const ConflictExplained = require('../errors/ConflictExplained');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -12,7 +13,7 @@ const createUser = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user) {
-        throw new RequestError('Такой пользователь уже существует в системе');
+        throw new ConflictExplained('Такой пользователь уже существует в системе');
       }
       return bcrypt.hash(req.body.password, 10);
     })
@@ -58,9 +59,14 @@ const updateProfile = (req, res, next) => {
     upsert: false,
   })
     .orFail()
-    .then((user) => res.status(200).send(user))
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('Пользователь не найден');
+      }
+      res.status(200).send(user);
+    })
     .catch(() => {
-      throw new NotFoundError('Пользователь не найден');
+      throw new RequestError('Переданы не корректные данные пользователя');
     })
     .catch(next);
 };
