@@ -54,19 +54,15 @@ app.use('/signin', celebrate({
   }),
 }), login);
 
+app.all('/*', () => {
+  throw new NotFoundError('Запрашиваемый ресурс не найден');
+});
+
 app.use(auth);
 
 app.use('/', usersRouters);
 
 app.use('/', cardsRouters);
-
-app.get('*', () => {
-  throw new NotFoundError('Запрашиваемый ресурс не найден');
-});
-
-app.path('*', () => {
-  throw new NotFoundError('Запрашиваемый ресурс не найден');
-});
 
 app.use(errorLogger);
 
