@@ -60,7 +60,7 @@ app.use('/', usersRouters);
 
 app.use('/', cardsRouters);
 
-app.all('/*', () => {
+app.all('*', () => {
   throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
 
